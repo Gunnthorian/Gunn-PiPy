@@ -19,7 +19,7 @@ from time import sleep
 
 
 ### Client Stuff
-SERVER = "169.254.209.111"  # 169.254.209.111
+SERVER = "192.168.0.197"  # 169.254.209.111
 PORT = 6762
 s = socket.socket()
 s.connect((SERVER, PORT))
@@ -97,6 +97,9 @@ def mainProcess(info, _):
         z_axis = joystick.get_axis(2)
         switch_axis = joystick.get_axis(3)
 
+        button_11 = joystick.get_button(10)
+        button_12 = joystick.get_button(11)
+
         for i in range( buttons ):
             button = joystick.get_button( i )
             print("Button {:>2} value: {}".format(i,button) )
@@ -115,7 +118,7 @@ def mainProcess(info, _):
         print("switch_axis", round(switch_axis, 2))
         window_switch_axis_text = myfont.render(str(switch_axis), 1, (black)) # Write value to pygame window
 
-        data_string = "data: "+str(round(x_axis, 2))+" "+str(round(y_axis, 2))+" "+str(round(z_axis, 2))+" "+str(round(switch_axis, 2))+";"
+        data_string = "data: "+str(round(x_axis, 2))+" "+str(round(y_axis, 2))+" "+str(round(z_axis, 2))+" "+str(round(switch_axis, 2))+" "+str(button_11)+" "+str(button_12)+";"
         print data_string
         print("")
         print(info['battery'])
