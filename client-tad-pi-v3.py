@@ -19,7 +19,7 @@ from time import sleep
 
 
 ### Client Stuff
-SERVER = "192.168.0.197"  # 169.254.209.111
+SERVER = "192.168.0.199"  # 169.254.209.111
 PORT = 6762
 s = socket.socket()
 s.connect((SERVER, PORT))
